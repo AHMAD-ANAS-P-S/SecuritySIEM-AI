@@ -1,0 +1,22 @@
+/* index.css - Design System Entry Point */
+
+/* 
+  Imports are ordered to structure the CSS hierarchy correctly.
+  By placing custom layers after Tailwind's corresponding imports,
+  we guarantee the browser applies the correct CSS specificity.
+*/
+
+/* 1. Core Variables & Base Elements */
+@import "tailwindcss/base";
+@import "./variables.css";
+@import "./base.css";
+
+/* 2. Custom Components CSS Layer */
+@import "tailwindcss/components";
+@import "./components.css";
+
+/* 3. Utility overrides & responsive controls */
+@import "tailwindcss/utilities";
+@import "./animations.css";
+@import "./utilities.css";
+@import "./responsive.css";

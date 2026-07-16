@@ -1,0 +1,116 @@
+/* responsive.css - SOC Video Wall scales, mobile screen overrides, and responsive grid layouts */
+
+@layer utilities {
+  /* ==========================================================================
+     1. Cyber Dashboard Responsive Grids
+     ========================================================================== */
+  /* Auto-responsive grid that wraps cells cleanly based on column size constraints */
+  .cyber-grid-responsive {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  /* Standard 12-Column SIEM Layout grid */
+  .cyber-grid-dashboard {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .cyber-grid-dashboard {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .cyber-grid-dashboard {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+
+  /* Grid column span shortcuts for SIEM widgets */
+  .span-full { grid-column: 1 / -1; }
+  
+  @media (min-width: 1280px) {
+    .span-cyber-lg { grid-column: span 8; }
+    .span-cyber-md { grid-column: span 6; }
+    .span-cyber-sm { grid-column: span 4; }
+    .span-cyber-xs { grid-column: span 3; }
+  }
+
+  /* Sidebar Layout with responsive collapse */
+  .cyber-layout-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  @media (min-width: 1024px) {
+    .cyber-layout-container {
+      flex-direction: row;
+    }
+  }
+
+  /* ==========================================================================
+     2. Mobile Compactness Rules (Tighter spacing under 768px)
+     ========================================================================== */
+  @media (max-width: 768px) {
+    html {
+      font-size: 13px; /* Slightly downscale core font for small devices */
+    }
+
+    body {
+      font-size: 0.8125rem;
+    }
+
+    /* Compress panels */
+    .cyber-panel {
+      padding: 0.875rem;
+      border-radius: var(--cyber-radius-sm);
+    }
+
+    /* Force tables to scroll or hide auxiliary telemetry */
+    .table-cyber th, 
+    .table-cyber td {
+      padding: 0.5rem 0.625rem;
+    }
+
+    /* Custom utility to hide long log details (like full hash strings or raw payloads) on mobile */
+    .hide-telemetry-mobile {
+      display: none !important;
+    }
+  }
+
+  /* ==========================================================================
+     3. SOC Video Wall High-Resolution Supports (1080p, 1440p, 4K)
+     ========================================================================== */
+  /* Up-scales layouts, fonts, and paddings for large monitoring screens */
+  @media (min-width: 1920px) {
+    html {
+      font-size: 15px; /* Upscale default font for 1080p monitors */
+    }
+
+    .cyber-panel {
+      padding: 1.5rem;
+    }
+  }
+
+  @media (min-width: 2560px) {
+    html {
+      font-size: 16px; /* High legibility for 2K/4K video walls */
+    }
+
+    .cyber-panel {
+      padding: 1.75rem;
+      border-width: 1.5px;
+    }
+
+    /* Increase badge sizes slightly for distance readability */
+    .badge-cyber {
+      font-size: 0.75rem;
+      padding: 0.1875rem 0.625rem;
+    }
+  }
+}

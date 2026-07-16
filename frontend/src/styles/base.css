@@ -1,0 +1,135 @@
+/* base.css - Document Resets, Scrollbars, typography & focus accessibility */
+
+@layer base {
+  *, ::before, ::after {
+    box-sizing: border-box;
+    border-color: var(--cyber-border-subtle);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    background-color: var(--cyber-bg-deep);
+    color: var(--cyber-text-base);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: var(--cyber-bg-deep);
+    font-size: 1rem;       /* 16px body size */
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  /* ── Cyber Typography System ──────────────────────────────────── */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headings);
+    color: var(--cyber-text-bright);
+    font-weight: 700;
+    line-height: 1.18;
+    margin-top: 0;
+    margin-bottom: 0.55em;
+    letter-spacing: 0.01em;
+  }
+
+  h1 { font-size: 2.625rem;  font-weight: 700; } /* Page Title   42px */
+  h2 { font-size: 1.875rem;  font-weight: 700; } /* Section Title 30px */
+  h3 { font-size: 1.375rem;  font-weight: 600; } /* Card Title   22px */
+  h4 { font-size: 1.125rem;  font-weight: 600; } /* Subtitle     18px */
+  h5 { font-size: 0.875rem;  font-weight: 500; } /* Caption      14px */
+  h6 { font-size: 0.8125rem; font-weight: 500; } /* Small        13px */
+
+  p {
+    margin-top: 0;
+    margin-bottom: 1em;
+    color: var(--cyber-text-base);
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  /* Code block typography - vital for logs and data inputs */
+  code, pre, kbd, samp {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+  }
+
+  code {
+    background-color: var(--cyber-bg-input);
+    border: 1px solid var(--cyber-border-muted);
+    color: var(--cyber-accent-cyan);
+    padding: 0.125rem 0.375rem;
+    border-radius: var(--cyber-radius-sm);
+  }
+
+  pre code {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    color: inherit;
+  }
+
+  pre {
+    background-color: var(--cyber-bg-input);
+    border: 1px solid var(--cyber-border-subtle);
+    border-radius: var(--cyber-radius-md);
+    padding: 1.25rem;
+    overflow: auto;
+  }
+
+  a {
+    color: var(--cyber-accent-cyan);
+    text-decoration: none;
+    transition: color var(--cyber-transition-fast);
+  }
+
+  a:hover {
+    color: var(--cyber-accent-blue);
+  }
+
+  /* Keyboard Focus Indicators - WCAG 2.1 Compliant */
+  :focus {
+    outline: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--cyber-accent-cyan);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px var(--cyber-accent-cyan-glow);
+  }
+
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    border-color: var(--cyber-accent-cyan);
+    box-shadow: 0 0 8px var(--cyber-accent-cyan-glow), inset 0 0 4px rgba(0, 229, 255, 0.05);
+  }
+
+  /* Custom Webkit Scrollbars */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--cyber-bg-deep);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--cyber-border-subtle);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--cyber-accent-cyan);
+    box-shadow: 0 0 4px var(--cyber-accent-cyan-glow);
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--cyber-border-subtle) transparent;
+  }
+}

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="SIEM AI - Enterprise AI Security Operations Center" />
+    <meta name="theme-color" content="#00f5ff" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>SIEM AI</title>
+    <script>
+      (function() {
+        try {
+          const stored = localStorage.getItem('siem_ai_theme');
+          const theme = stored ? JSON.parse(stored) : null;
+          if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,124 @@
+/* animations.css - High-tech visual effects and animation keyframes */
+
+@keyframes radarSweep {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes cyberGlitchText {
+  0% {
+    text-shadow: 0.05em 0 0 rgba(255, 46, 84, 0.75), -0.05em -0.025em 0 rgba(0, 240, 255, 0.75), -0.025em 0.05em 0 rgba(99, 102, 241, 0.75);
+  }
+  14% {
+    text-shadow: 0.05em 0 0 rgba(255, 46, 84, 0.75), -0.05em -0.025em 0 rgba(0, 240, 255, 0.75), -0.025em 0.05em 0 rgba(99, 102, 241, 0.75);
+  }
+  15% {
+    text-shadow: -0.05em -0.025em 0 rgba(255, 46, 84, 0.75), 0.025em 0.025em 0 rgba(0, 240, 255, 0.75), -0.05em -0.05em 0 rgba(99, 102, 241, 0.75);
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 rgba(255, 46, 84, 0.75), 0.025em 0.025em 0 rgba(0, 240, 255, 0.75), -0.05em -0.05em 0 rgba(99, 102, 241, 0.75);
+  }
+  50% {
+    text-shadow: 0.025em 0.05em 0 rgba(255, 46, 84, 0.75), -0.025em 0.05em 0 rgba(0, 240, 255, 0.75), 0 0.05em 0 rgba(99, 102, 241, 0.75);
+  }
+  99% {
+    text-shadow: 0.025em 0.05em 0 rgba(255, 46, 84, 0.75), -0.025em 0.05em 0 rgba(0, 240, 255, 0.75), 0 0.05em 0 rgba(99, 102, 241, 0.75);
+  }
+  100% {
+    text-shadow: -0.025em 0 0 rgba(255, 46, 84, 0.75), -0.025em -0.025em 0 rgba(0, 240, 255, 0.75), -0.025em -0.05em 0 rgba(99, 102, 241, 0.75);
+  }
+}
+
+@keyframes threatPulseCritical {
+  0%, 100% {
+    box-shadow: 0 0 4px var(--threat-critical-glow), inset 0 0 4px var(--threat-critical-glow);
+    border-color: var(--threat-critical-border);
+  }
+  50% {
+    box-shadow: 0 0 16px var(--threat-critical), inset 0 0 8px var(--threat-critical-glow);
+    border-color: var(--threat-critical);
+  }
+}
+
+@keyframes threatPulseHigh {
+  0%, 100% {
+    box-shadow: 0 0 4px var(--threat-high-glow), inset 0 0 4px var(--threat-high-glow);
+    border-color: var(--threat-high-border);
+  }
+  50% {
+    box-shadow: 0 0 14px var(--threat-high), inset 0 0 6px var(--threat-high-glow);
+    border-color: var(--threat-high);
+  }
+}
+
+@keyframes threatPulseMedium {
+  0%, 100% {
+    box-shadow: 0 0 4px var(--threat-medium-glow), inset 0 0 4px var(--threat-medium-glow);
+    border-color: var(--threat-medium-border);
+  }
+  50% {
+    box-shadow: 0 0 12px var(--threat-medium), inset 0 0 5px var(--threat-medium-glow);
+    border-color: var(--threat-medium);
+  }
+}
+
+@keyframes borderGlowFlow {
+  0% {
+    border-image-source: linear-gradient(0deg, var(--cyber-accent-cyan) 0%, transparent 50%, var(--cyber-accent-blue) 100%);
+  }
+  50% {
+    border-image-source: linear-gradient(180deg, var(--cyber-accent-cyan) 0%, transparent 50%, var(--cyber-accent-blue) 100%);
+  }
+  100% {
+    border-image-source: linear-gradient(360deg, var(--cyber-accent-cyan) 0%, transparent 50%, var(--cyber-accent-blue) 100%);
+  }
+}
+
+/* Animations Classes */
+@layer utilities {
+  .animate-radar {
+    animation: radarSweep 8s linear infinite;
+  }
+
+  .animate-text-glitch {
+    animation: cyberGlitchText 2.5s infinite;
+  }
+
+  .animate-pulse-critical {
+    animation: threatPulseCritical 1.5s infinite ease-in-out;
+  }
+
+  .animate-pulse-high {
+    animation: threatPulseHigh 1.8s infinite ease-in-out;
+  }
+
+  .animate-pulse-medium {
+    animation: threatPulseMedium 2s infinite ease-in-out;
+  }
+
+  /* Threat level pulsing text glows */
+  .text-glow-critical {
+    text-shadow: 0 0 8px var(--threat-critical-glow);
+  }
+  
+  .text-glow-high {
+    text-shadow: 0 0 8px var(--threat-high-glow);
+  }
+  
+  .text-glow-cyan {
+    text-shadow: 0 0 8px var(--cyber-accent-cyan-glow);
+  }
+
+  /* Micro-animation transitions */
+  .transition-cyber {
+    transition: all var(--cyber-transition-normal);
+  }
+
+  .transition-cyber-fast {
+    transition: all var(--cyber-transition-fast);
+  }
+}
